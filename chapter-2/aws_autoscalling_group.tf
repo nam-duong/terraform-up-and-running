@@ -4,8 +4,8 @@ resource "aws_autoscaling_group" "example" {
   min_size = 1
   max_size = 1
 
-  availability_zones = "${data.aws_availability_zones.all.names}"
-  load_balancers     = "${aws_elb.example.name}"
+  availability_zones = ["${data.aws_availability_zones.all.names}"]
+  load_balancers     = ["${aws_elb.example.name}"]
   health_check_type  = "ELB"
 
   tag {
